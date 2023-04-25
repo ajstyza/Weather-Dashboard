@@ -5,18 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <header>
-
+<p id = "weather-header">Weather Dashboard</p>
 </header>
 <body>
-    <div class ="search-container">
+<div class= "main">
+    <div class ="search-container">Search City Name
         <form action="">
-            <input type="text">
+            <input class = "search-input" type="text" placeholder="City Name">
             <button class="btn" id = "search-btn">Search</button>
+            <br>
+            <button class="btn" id = "state-btn-1">state</button>
+            <br>
+            <button class="btn" id = "state-btn-2">state</button>
+            <br>
+            <button class="btn" id = "state-btn-3">state</button>
+            <br>
+            <button class="btn" id = "state-btn-4">state</button>
         </form>
-    </div>    
+    </div>   
 
+    <div class = "divider"></div>
+
+    <div class = "weather-container">
+        <div class = "content-box" id = "box1">item-1</div>
+        <div class = "content-box" id = "box2">item-2</div>
+        <div class = "content-box" id = "box3">item-3</div>
+        <div class = "content-box" id = "box4">item-4</div>
+        <div class = "content-box" id = "box5">item-5</div>
+    </div>
+</div>
+    <script>src="./script.js"</script>
 </body>
 </html>

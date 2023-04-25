@@ -1,0 +1,51 @@
+header{
+    background-color: cadetblue;
+    width: 100%;
+    height: 100%;
+}
+.main {
+    display: flex;
+    flex-direction: row;
+}
+#weather-header{
+    text-align: center;
+    font-size: xx-large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: aliceblue;
+    height: 10vh;
+}
+ 
+.weather-container{
+    display: grid;
+    margin-left: 200px;
+    border-color: black 20px;
+    background-color: cadetblue;
+    height: 50vh;
+    width: 70vw;
+    justify-content: space-around;
+} 
+.content-box{
+    justify-content: space-between;
+    border-color: aliceblue;
+}
+input{
+    width: 200px;
+    height: 50px;
+}
+button{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 50px;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 20px black;
+  
+}
+/* .divider{
+    width: 10px;
+    height: 100vh;
+    color: black;
+    margin-left: 300px;
+}
+*/
