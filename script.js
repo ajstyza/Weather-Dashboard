@@ -14,15 +14,14 @@ console.log(data)
 })
 };
 */
-function searchState() {
-  
-var search = document.getElementById('city-search').value; //gets city string from input
-var requestUrl = 'http://api.openweathermap.org/geo/1.0/direct?q={cityname}&appid=5f86b2ad02bbbf3c5d9ce42a08c633ab';
-var cityKeyArray = requestUrl.split('q=')[1];
-var newArray = requestUrl.replace(cityKeyArray, search + '&appid=5f86b2ad02bbbf3c5d9ce42a08c633ab').trim();
+function searchState(e) {
+  e.preventDefault();
+var search = document.getElementById('city-search').value.trim(); //gets city string from input
+var requestUrl = `http://api.openweathermap.org/geo/1.0/direct?q={search}&appid=5f86b2ad02bbbf3c5d9ce42a08c633ab`;
+// var cityKeyArray = requestUrl.split(`q=`)[1];
+// var newUrl = requestUrl.replace(cityKeyArray, search + `&appid=5f86b2ad02bbbf3c5d9ce42a08c633ab`).trim();
 
-
-fetch(newArray)
+fetch(requestUrl)
 .then(function (response) {
     return response.json();
 })
@@ -32,7 +31,6 @@ console.log(data)
 
 })
 }
-
 
 searchButton.addEventListener('click', searchState());
 
