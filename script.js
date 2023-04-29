@@ -1,10 +1,10 @@
 
 var searchButton = document.getElementById('search-btn');
+searchButton.addEventListener('click', searchState);
 function searchState(e) {
   e.preventDefault();
 var search = document.getElementById('city-search').value.trim(); //gets city string from input
 var requestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${search}&appid=5f86b2ad02bbbf3c5d9ce42a08c633ab`;
-
 
 
 
@@ -17,9 +17,8 @@ fetch(requestUrl)
 
 })
 };
-   
     
-searchButton.addEventListener('click', searchState);
+
 
 var lat = data[0].lat.trim();
 var lon = data[0].lon.trim();
