@@ -15,19 +15,22 @@ header{
     height: 10vh;
 }
  
-.weather-container{
+.content-box {
     display: grid;
-    margin-left: 200px;
-    border-color: black 20px;
-    background-color: cadetblue;
-    height: 50vh;
-    width: 70vw;
+    
     justify-content: space-around;
-} 
-.content-box{
-    justify-content: space-between;
-    border-color: aliceblue;
 }
+
+
+.container {
+    grid-template-columns: [row1-start] 25% [row1-end row2-start] 25% [row2-end];;
+    background-color: cadetblue;
+}
+#day1{
+    padding: 20px;
+    justify-content: space-around;
+}
+
 input{
     width: 200px;
     height: 50px;
