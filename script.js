@@ -151,8 +151,15 @@ function displayWeather(data){
 function storeHistory(data){
 let data_serialized = JSON.stringify(data);
 localStorage.setItem("data", data_serialized);
+for (let i = 0; i < localStorage.length; i++) {
+    var element = localStorage[0].city.name;
+    element = JSON.stringify(data);
+    console.log(element);
+    
+}
 
 };
+
 
 /*
 function storeHistory() {
