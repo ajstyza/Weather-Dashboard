@@ -27,8 +27,10 @@ fetch(LatLonUrl)
     return response.json();
     })
     .then(function(data) {
+        console.log(data)
 
-        displayWeather(data);
+       displayWeather(data);
+       storeHistory(data);
         
     })
 };
@@ -140,7 +142,23 @@ function displayWeather(data){
     var humidityDay5 = data.list[32].main.humidity;
             document.createElement("li");
                 document.getElementById('humid5').append(humidityDay5);
+
     
 };
 
+// store searches in local storage
+
+function storeHistory(data){
+let data_serialized = JSON.stringify(data);
+localStorage.setItem("data", data_serialized);
+
+};
+
+/*
+function storeHistory() {
+let history = document.getElementById('city-search').value.trim();
+localStorage.setItem(history);
+console.log(history);
+};
+*/
 searchButton.addEventListener('click', searchState);
