@@ -147,25 +147,34 @@ function displayWeather(data){
 };
 
 // store searches in local storage
-
+/*
 function storeHistory(data){
 let data_serialized = JSON.stringify(data);
 localStorage.setItem("data", data_serialized);
 for (let i = 0; i < localStorage.length; i++) {
-    var element = localStorage[0].city.name;
-    element = JSON.stringify(data);
-    console.log(element);
-    
+    localStorage.getItem("data", data_serialized);
+   // var element = localStorage[i];
+    //var city = element.city.name;
+    //element = JSON.stringify(data);
+
+    console.log(data_serialized);   
 }
 
 };
-
-
-/*
-function storeHistory() {
-let history = document.getElementById('city-search').value.trim();
-localStorage.setItem(history);
-console.log(history);
-};
 */
+
 searchButton.addEventListener('click', searchState);
+
+function  storeHistory(data){
+    var storedItem = localStorage.getItem("cityArr", cityArr);
+    var cityArr = [""];
+    var cityName = data.city.name;
+    if (storedItem !== cityName){
+
+        cityArr.push(cityName);
+        localStorage.setItem("cityArr", cityArr);
+        console.log(cityArr);
+    }
+};
+
+
