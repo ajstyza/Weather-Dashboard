@@ -62,6 +62,7 @@ fetch(LatLonUrl)
 // function to display 5-day weather forecast
 
 function displayWeather(data){
+
     var date1 = data.list[0].dt_txt;
         document.createElement("li");
             document.getElementById('date1').append(date1);
@@ -184,11 +185,13 @@ function  storeHistory(data){
 
 //function to dynamically create buttons
 function generateButton(data) {
-let cityName = data.city.name;
-let buttonTarget = document.getElementById('search-container');
-const btn = document.createElement('button');
-btn.innerHTML = cityName;
-buttonTarget.append(cityName);
+    let cityName = data.city.name;
+    let buttonTarget = document.getElementById('cities');
+    let button = document.createElement('button');
+        button.innerHTML = cityName;
+        buttonTarget.appendChild(button);
+        button.addEventListener('click', searchState);
+
 };
 
 
