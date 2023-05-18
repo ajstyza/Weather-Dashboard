@@ -49,106 +49,121 @@ function displayWeather(data) {
 
             
    var windSpeedDay1 = document.createElement("p");
-        windSpeedDay1.textContent = "Wind Speed: " + data.list[0].wind.speed;
-            document.getElementById('weatherContainer').append(windSpeedDay1 + " MPH");
+        windSpeedDay1.textContent = "Wind Speed: " + data.list[0].wind.speed + " MPH";
+            document.getElementById('weatherContainer').append(windSpeedDay1);
 
-    var kelvin = data.list[0].main.temp;
-        let temperatureDay1 = ((kelvin - 273.15) * 9/5+32);
+  
+       var temperatureDay1 = document.createElement("p");
+       var kelvin = data.list[8].main.temp; 
+        temperatureDay1 = ((kelvin - 273.15) * 9/5+32);
         temperatureDay1 = Math.floor(temperatureDay1);
-        temperatureDay1 = document.createElement("p");
-             document.getElementById('weatherContainer').append(temperatureDay1 + " °F");
+        temperatureDay1.textContent = temperatureDay1;
+             document.getElementById('weatherContainer').append("Temperature: " + temperatureDay1 + " °F");
 
 
     var humidityDay1 = document.createElement("p");
-        humidityDay1.textContent = "humidity: " + data.list[0].main.humidity;
-            document.getElementById('weatherContianer').append(humidityDay1 + " %");
+        humidityDay1.textContent = "Humidity: " + data.list[0].main.humidity + " %";
+            document.getElementById('weatherContainer').append(humidityDay1);
 
             ////////////////////// day 2 weather
-/*
-     var date2 = data.list[8].dt_txt;
-            document.createElement("li");
-                document.getElementById('date2').append(date2);
-    
 
-    var windSpeedDay2 = data.list[8].wind.speed;
-            document.createElement("li");
-                document.getElementById('wind2').append(windSpeedDay2 + " MPH");
-    
-    let kelvin2 = data.list[8].main.temp;
-        let temperatureDay2 = ((kelvin2 - 273.15) * 9/5+32);
+     var date2 = document.createElement("p");
+        date2.textContent = "Date: " + data.list[8].dt_txt;
+            document.getElementById('weatherContainer').append(date2);
+
+            
+   var windSpeedDay2 = document.createElement("p");
+        windSpeedDay2.textContent = "Wind Speed: " + data.list[8].wind.speed + " MPH";
+            document.getElementById('weatherContainer').append(windSpeedDay2);
+
+  
+       var temperatureDay2 = document.createElement("p");
+       var kelvin = data.list[8].main.temp; 
+        temperatureDay2 = ((kelvin - 273.15) * 9/5+32);
         temperatureDay2 = Math.floor(temperatureDay2);
-            document.createElement("li");
-                 document.getElementById('temp2').append(temperatureDay2 + " °F");
-    
-    
-    var humidityDay2 = data.list[8].main.humidity;
-            document.createElement("li");
-                document.getElementById('humid2').append(humidityDay2 + " %");
+        temperatureDay2.textContent = temperatureDay2;
+             document.getElementById('weatherContainer').append("Temperature: " + temperatureDay2 + " °F");
+
+
+    var humidityDay2 = document.createElement("p");
+        humidityDay2.textContent = "Humidity: " + data.list[8].main.humidity + " %";
+            document.getElementById('weatherContainer').append(humidityDay2);
+
 
                  ////////////////////// day 3 weather
 
-    var date3 = data.list[16].dt_txt;
-            document.createElement("li");
-                document.getElementById('date3').append(date3);
+            var date3 = document.createElement("p");
+                 date3.textContent = "Date: " + data.list[16].dt_txt;
+                     document.getElementById('weatherContainer').append(date3);
          
-    var windSpeedDay3 = data.list[16].wind.speed;
-             document.createElement("li");
-                 document.getElementById('wind3').append(windSpeedDay3 + " MPH");
-
-    var kelvin3 = data.list[16].main.temp;
-        let temperatureDay3 = ((kelvin3 - 273.15) * 9/5+32);
-        temperatureDay3 = Math.floor(temperatureDay3);
-            document.createElement("li");
-                document.getElementById('temp3').append(temperatureDay3 + " °F");
-
-
-    var humidityDay3 = data.list[16].main.humidity;
-            document.createElement("li");
-                document.getElementById('humid3').append(humidityDay3 + " %");
+                     
+            var windSpeedDay3 = document.createElement("p");
+                 windSpeedDay3.textContent = "Wind Speed: " + data.list[16].wind.speed + " MPH";
+                     document.getElementById('weatherContainer').append(windSpeedDay3);
+         
+           
+                var temperatureDay3 = document.createElement("p");
+                var kelvin = data.list[16].main.temp; 
+                 temperatureDay3 = ((kelvin - 273.15) * 9/5+32);
+                 temperatureDay3 = Math.floor(temperatureDay3);
+                 temperatureDay3.textContent = temperatureDay3;
+                      document.getElementById('weatherContainer').append("Temperature: " + temperatureDay3 + " °F");
+         
+         
+             var humidityDay3 = document.createElement("p");
+                 humidityDay3.textContent = "Humidity: " + data.list[16].main.humidity + " %";
+                     document.getElementById('weatherContainer').append(humidityDay3);
+         
     
             ////////////////////// day 4 weather
 
-    var date4 = data.list[24].dt_txt;
-            document.createElement("li");
-                document.getElementById('date4').append(date4);
+            var date4 = document.createElement("p");
+            date4.textContent = "Date: " + data.list[24].dt_txt;
+                document.getElementById('weatherContainer').append(date4);
     
-
-    var windSpeedDay4 = data.list[24].wind.speed;
-            document.createElement("li");
-                document.getElementById('wind4').append(windSpeedDay4 + " MPH");
-
-    var kelvin4 = data.list[24].main.temp;
-        let temperatureDay4 = ((kelvin4 - 273.15) * 9/5+32);
-        temperatureDay4 = Math.floor(temperatureDay4);
-            document.createElement("li");
-                document.getElementById('temp4').append(temperatureDay4 + " °F");
-
-    var humidityDay4 = data.list[24].main.humidity;
-            document.createElement("li");
-                document.getElementById('humid4').append(humidityDay4 + " %");
+                
+       var windSpeedDay4 = document.createElement("p");
+            windSpeedDay4.textContent = "Wind Speed: " + data.list[24].wind.speed + " MPH";
+                document.getElementById('weatherContainer').append(windSpeedDay4);
+    
+      
+           var temperatureDay4 = document.createElement("p");
+           var kelvin = data.list[24].main.temp; 
+            temperatureDay4 = ((kelvin - 273.15) * 9/5+32);
+            temperatureDay4 = Math.floor(temperatureDay4);
+            temperatureDay4.textContent = temperatureDay4;
+                 document.getElementById('weatherContainer').append("Temperature: " + temperatureDay4 + " °F");
+    
+    
+        var humidityDay4 = document.createElement("p");
+            humidityDay4.textContent = "Humidity: " + data.list[24].main.humidity + " %";
+                document.getElementById('weatherContainer').append(humidityDay4);
+    
     
             ////////////////////// day 5 weather
 
-    var date5 = data.list[32].dt_txt;
-            document.createElement("li");
-                document.getElementById('date5').append(date5);
+            var date5 = document.createElement("p");
+            date5.textContent = "Date: " + data.list[36].dt_txt;
+                document.getElementById('weatherContainer').append(date5);
     
-
-    var windSpeedDay5 = data.list[32].wind.speed;
-            document.createElement("li");
-                document.getElementById('wind5').append(windSpeedDay5 + " MPH");
-
-    var kelvin5 = data.list[32].main.temp;
-        let temperatureDay5 = ((kelvin5 - 273.15) * 9/5+32);
-        temperatureDay5 = Math.floor(temperatureDay5);
-            document.createElement("li");
-                 document.getElementById('temp5').append(temperatureDay5 + " °F");
-
-
-    var humidityDay5 = data.list[32].main.humidity;
-            document.createElement("li");
-                document.getElementById('humid5').append(humidityDay5 + " %");
-                */
+                
+       var windSpeedDay5 = document.createElement("p");
+            windSpeedDay5.textContent = "Wind Speed: " + data.list[36].wind.speed + " MPH";
+                document.getElementById('weatherContainer').append(windSpeedDay5);
+    
+      
+           var temperatureDay5 = document.createElement("p");
+           var kelvin = data.list[36].main.temp; 
+            temperatureDay5 = ((kelvin - 273.15) * 9/5+32);
+            temperatureDay5 = Math.floor(temperatureDay5);
+            temperatureDay5.textContent = temperatureDay5;
+                 document.getElementById('weatherContainer').append("Temperature: " + temperatureDay5 + " °F");
+    
+    
+        var humidityDay5 = document.createElement("p");
+            humidityDay5.textContent = "Humidity: " + data.list[36].main.humidity + " %";
+                document.getElementById('weatherContainer').append(humidityDay5);
+    
 }; 
 
 
@@ -190,16 +205,16 @@ function generateButton(data) {
 
     
     //function to dynamically create buttons with previous search information
-    
+
     function generateButton(data) {
         let cityName = data.city.name;
         let buttonTarget = document.getElementById('cities');
         let button = document.createElement('button');
             button.innerHTML = cityName;
             buttonTarget.appendChild(button);
+            e.preventPropagation();
             button.addEventListener('click', searchState);
-
-};
+    };
 
 searchButton.addEventListener('click', searchState);
 
