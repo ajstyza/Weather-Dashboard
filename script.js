@@ -27,63 +27,44 @@ fetch(LatLonUrl)
     return response.json();
     })
     .then(function(data) {
+        
         console.log(data)
-
        displayWeather(data);
        storeHistory(data);
-      generateButton(data);
+        generateButton(data);
+       
         
     })
 };
-/*
-// forLoop to display weather (cannot get arrays to separate easily into days)
 
-   function displayWeather(data){
-    for(let i = 0; i < data.list.length; i+=8) {
-    const days = data.list[i];
-    var windSpeed = days.wind.speed;
-    var temperature = days.main.temp;
-    var humidity = days.main.humidity;
-    console.log(windSpeed, temperature, humidity);
-    
-    var windEl = document.createElement("p");
-    windEl.textContent = windSpeed;
-        document.getElementById('box1').append(windEl);
-    var tempEl = document.createElement("p");
-    tempEl.textContent = temperature;
-         document.getElementById('box2').append(tempEl);
-    var humEl = document.createElement("p");
-    humEl.textContent = humidity;
-        document.getElementById('box3').append(humEl);
-    }
-};
-*/
 
 // function to display 5-day weather forecast
 
-function displayWeather(data){
+function displayWeather(data) {
 
-    var date1 = data.list[0].dt_txt;
-        document.createElement("li");
-            document.getElementById('date1').append(date1);
+    weatherContainer.innerHTML = '';
+    var date1 = document.createElement("p");
+        date1.textContent = "Date: " + data.list[0].dt_txt;
+            document.getElementById('weatherContainer').append(date1);
+
             
-
-    var windSpeedDay1 = data.list[0].wind.speed;
-        document.createElement("li");
-            document.getElementById('wind1').append(windSpeedDay1 + " MPH");
+   var windSpeedDay1 = document.createElement("p");
+        windSpeedDay1.textContent = "Wind Speed: " + data.list[0].wind.speed;
+            document.getElementById('weatherContainer').append(windSpeedDay1 + " MPH");
 
     var kelvin = data.list[0].main.temp;
         let temperatureDay1 = ((kelvin - 273.15) * 9/5+32);
         temperatureDay1 = Math.floor(temperatureDay1);
-            document.createElement("li");
-             document.getElementById('temp1').append(temperatureDay1 + " °F");
+        temperatureDay1 = document.createElement("p");
+             document.getElementById('weatherContainer').append(temperatureDay1 + " °F");
 
 
-    var humidityDay1 = data.list[0].main.humidity;
-        document.createElement("li");
-            document.getElementById('humid1').append(humidityDay1 + " %");
+    var humidityDay1 = document.createElement("p");
+        humidityDay1.textContent = "humidity: " + data.list[0].main.humidity;
+            document.getElementById('weatherContianer').append(humidityDay1 + " %");
 
             ////////////////////// day 2 weather
+/*
      var date2 = data.list[8].dt_txt;
             document.createElement("li");
                 document.getElementById('date2').append(date2);
@@ -147,6 +128,7 @@ function displayWeather(data){
                 document.getElementById('humid4').append(humidityDay4 + " %");
     
             ////////////////////// day 5 weather
+
     var date5 = data.list[32].dt_txt;
             document.createElement("li");
                 document.getElementById('date5').append(date5);
@@ -166,13 +148,12 @@ function displayWeather(data){
     var humidityDay5 = data.list[32].main.humidity;
             document.createElement("li");
                 document.getElementById('humid5').append(humidityDay5 + " %");
-
-    
-};
-
+                */
+}; 
 
 
 // checks local storage to see if city exist in array, if not it pushes it into a new array
+
 function  storeHistory(data){
     var storedItem = JSON.parse(localStorage.getItem("cityArr")) || [];
     // var cityArr = [""];
@@ -183,7 +164,8 @@ function  storeHistory(data){
     }
 };
 
-//function to dynamically create buttons
+//function to dynamically create buttons with previous search information
+
 function generateButton(data) {
     let cityName = data.city.name;
     let buttonTarget = document.getElementById('cities');
@@ -191,9 +173,33 @@ function generateButton(data) {
         button.innerHTML = cityName;
         buttonTarget.appendChild(button);
         button.addEventListener('click', searchState);
-
 };
 
+// function RemoveWeather()
+    // checks local storage to see if city exist in array, if not it pushes it into a new array
+    
+    function  storeHistory(data){
+        var storedItem = JSON.parse(localStorage.getItem("cityArr")) || [];
+        // var cityArr = [""];
+        var cityName = data.city.name;
+        if (!storedItem.includes(cityName)){
+            storedItem.push(cityName);
+            localStorage.setItem("cityArr", JSON.stringify(storedItem));
+        }
+    };
+
+    
+    //function to dynamically create buttons with previous search information
+    
+    function generateButton(data) {
+        let cityName = data.city.name;
+        let buttonTarget = document.getElementById('cities');
+        let button = document.createElement('button');
+            button.innerHTML = cityName;
+            buttonTarget.appendChild(button);
+            button.addEventListener('click', searchState);
+
+};
 
 searchButton.addEventListener('click', searchState);
 
@@ -201,3 +207,26 @@ searchButton.addEventListener('click', searchState);
 // || or operators can be used outside of conditional logic
 
 
+
+// forLoop to display weather (cannot get arrays to separate easily into days)
+/*
+   function displayWeather(data){
+    for(let i = 0; i < data.list.length; i+=8) {
+    const days = data.list[i];
+    var windSpeed = days.wind.speed;
+    var temperature = days.main.temp;
+    var humidity = days.main.humidity;
+    console.log(windSpeed, temperature, humidity);
+    
+    var windEl = document.createElement("p");
+    windEl.textContent = windSpeed;
+        document.getElementById('box1').append(windEl);
+    var tempEl = document.createElement("p");
+    tempEl.textContent = temperature;
+         document.getElementById('box2').append(tempEl);
+    var humEl = document.createElement("p");
+    humEl.textContent = humidity;
+        document.getElementById('box3').append(humEl);
+    }
+};
+*/
